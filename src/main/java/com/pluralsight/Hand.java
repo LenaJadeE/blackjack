@@ -33,7 +33,7 @@ public class Hand {
     public String describe() {
         String text = "";
 
-        for (Card card  : cards) {
+        for (Card card : cards) {
             card.flip();
             text += card.getValue() + " of " + card.getSuit() + "   ";
             card.flip();
