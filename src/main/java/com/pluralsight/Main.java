@@ -29,5 +29,20 @@ public class Main {
                 player.getHand().deal(card);
             }
         }
+
+        System.out.println();
+        System.out.println("Cards left in the deck: " + deck.getSize());
+        System.out.println();
+
+        for (Player player : players) {
+            Hand hand = player.getHand();
+            System.out.println(player.getName() + " (" + hand.getSize() + " cards): "
+                    + hand.describe() + "= " + hand.getValue());
+        }
+
+        System.out.println();
+        //declareWinner(players);
+
+        scanner.close();
     }
 }
