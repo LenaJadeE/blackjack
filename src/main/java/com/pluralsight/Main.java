@@ -64,5 +64,13 @@ public class Main {
                 }
             }
         }
+
+        if (winner == null) {
+            System.out.println("Everyone went over 21. No winner.");
+        } else if (tie) {
+            System.out.println("It's a tie at " + bestValue + ".");
+        } else {
+            System.out.println(winner.getName() + " wins with " + bestValue + "!");
+        }
     }
 }
