@@ -23,4 +23,15 @@ public class Deck {
     public void shuffle() {
         Collections.shuffle(cards);
     }
+
+    public Card deal() {
+        if (cards.size() > 0) {
+            Card card = cards.remove(0);
+            return card;
+        } else {
+            return null;
+        }
+    }
+
+
 }
