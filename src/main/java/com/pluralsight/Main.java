@@ -66,11 +66,11 @@ public class Main {
         }
 
         if (winner == null) {
-            System.out.println("Everyone went over 21. No winner.");
+            System.out.println(ColorCodes.RED + "Everyone went over 21. No winner." + ColorCodes.RESET);
         } else if (tie) {
-            System.out.println("It's a tie at " + bestValue + ".");
+            System.out.println(ColorCodes.YELLOW +"It's a tie at " + bestValue + "." + ColorCodes.RESET);
         } else {
-            System.out.println(winner.getName() + " wins with " + bestValue + "!");
+            System.out.println(ColorCodes.GREEN +winner.getName() + " wins with " + bestValue + "!"+ ColorCodes.RESET);
         }
     }
 }
