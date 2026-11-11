@@ -19,5 +19,15 @@ public class Main {
             Player player = new Player(name);
             players.add(player);
         }
+
+        Deck deck = new Deck();
+        deck.shuffle();
+
+        for (int round = 0; round < 2; round++) {
+            for (Player player : players) {
+                Card card = deck.deal();
+                player.getHand().deal(card);
+            }
+        }
     }
 }
