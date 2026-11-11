@@ -25,23 +25,19 @@ public class Hand {
         int value = 0;
 
         for (Card card : cards) {
-            card.flip();
             value += card.getPointValue();
-            card.flip();
         }
 
         return value;
     }
 
     public String describe() {
-        String text = "";
+        StringBuilder text = new StringBuilder();
 
         for (Card card : cards) {
-            card.flip();
-            text += card.getValue() + " of " + card.getSuit() + "   ";
-            card.flip();
+            text.append(card.getValue()).append(" of ").append(card.getSuit()).append("   ");
         }
 
-        return text;
+        return text.toString();
     }
 }
