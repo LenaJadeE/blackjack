@@ -51,6 +51,30 @@ public class Card {
         }
     }
 
+    public String getDisplay() {
+        if (!faceUp) {
+            return "#";
+        }
+
+        String symbol = "";
+        String color = ColorCodes.BLACK;
+        String suitName = getSuit();
+
+        if (suitName.equals("Hearts")) {
+            symbol = Symbols.HEARTS;
+            color = ColorCodes.RED;
+        } else if (suitName.equals("Diamonds")) {
+            symbol = Symbols.DIAMONDS;
+            color = ColorCodes.RED;
+        } else if (suitName.equals("Spades")) {
+            symbol = Symbols.SPADES;
+        } else if (suitName.equals("Clubs")) {
+            symbol = Symbols.CLUBS;
+        }
+
+        return ColorCodes.WHITE_BACKGROUND + color + " " + getValue() + symbol + " " + ColorCodes.RESET;
+    }
+
     public boolean isFaceUp() {
         return faceUp;
     }
