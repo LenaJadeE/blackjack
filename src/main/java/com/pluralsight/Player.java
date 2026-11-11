@@ -3,7 +3,7 @@ package com.pluralsight;
 public class Player {
 
     private final String name;
-    private Hand hand;
+    private final Hand hand;
 
     public Player(String name) {
         this.name = name;
