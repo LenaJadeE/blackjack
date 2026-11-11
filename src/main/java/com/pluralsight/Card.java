@@ -27,4 +27,27 @@ public class Card {
             return "#";
         }
     }
+
+    public int getPointValue() {
+        if(faceUp) {
+            if (value.equals("A")) {
+                return 11;
+            }
+
+            if (value.equals("K")) {
+                return 10;
+            }
+
+            if (value.equals("Q")) {
+                return 10;
+            }
+
+            if (value.equals("J")) {
+                return 10;
+            }
+            return Integer.parseInt(value);
+        } else {
+            return 0;
+        }
+    }
 }
