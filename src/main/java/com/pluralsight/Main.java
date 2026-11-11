@@ -41,8 +41,28 @@ public class Main {
         }
 
         System.out.println();
-        //declareWinner(players);
+        declareWinner(players);
 
         scanner.close();
+    }
+
+    private static void declareWinner(ArrayList<Player> players) {
+        Player winner = null;
+        int bestValue = 0;
+        boolean tie = false;
+
+        for (Player player : players) {
+            int value = player.getHand().getValue();
+
+            if (value <= 21) {
+                if (value > bestValue) {
+                    winner = player;
+                    bestValue = value;
+                    tie = false;
+                } else if (value == bestValue) {
+                    tie = true;
+                }
+            }
+        }
     }
 }
