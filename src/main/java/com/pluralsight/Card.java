@@ -21,7 +21,7 @@ public class Card {
     }
 
     public String getValue() {
-        if (faceUp){
+        if (faceUp) {
             return value;
         } else {
             return "#";
