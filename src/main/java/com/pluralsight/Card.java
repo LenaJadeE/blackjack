@@ -72,7 +72,7 @@ public class Card {
             symbol = Symbols.CLUBS;
         }
 
-        return ColorCodes.WHITE_BACKGROUND + color + " " + getValue() + symbol + " " + ColorCodes.RESET;
+        return ColorCodes.DARKER_GREY_BACKGROUND + color + " " + getValue() + symbol + " " + ColorCodes.RESET;
     }
 
     public boolean isFaceUp() {
