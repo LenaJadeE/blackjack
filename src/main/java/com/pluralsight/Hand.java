@@ -4,13 +4,16 @@ import java.util.ArrayList;
 
 public class Hand {
 
-    private ArrayList<Card> cards;
+    private final ArrayList<Card> cards;
 
     public Hand() {
         cards = new ArrayList<>();
     }
 
     public void deal(Card card) {
+        if (!card.isFaceUp()) {
+            card.flip();
+        }
         cards.add(card);
     }
 
