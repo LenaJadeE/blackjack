@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -17,5 +18,9 @@ public class Deck {
                 cards.add(card);
             }
         }
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cards);
     }
 }
