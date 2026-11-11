@@ -8,7 +8,7 @@ public class ColorCodes {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
 
-    public static final String WHITE_BACKGROUND = "\u001B[47m";
+    public static final String DARKER_GREY_BACKGROUND = "\u001B[48;5;236m";
 
     private ColorCodes(){}
 }
