@@ -35,7 +35,7 @@ public class Hand {
         StringBuilder text = new StringBuilder();
 
         for (Card card : cards) {
-            text.append(card.getValue()).append(" of ").append(card.getSuit()).append("   ");
+            text.append(card.getDisplay());text.append("   ");
         }
 
         return text.toString();
