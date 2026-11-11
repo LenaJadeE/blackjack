@@ -29,7 +29,7 @@ public class Card {
     }
 
     public int getPointValue() {
-        if(faceUp) {
+        if (faceUp) {
             if (value.equals("A")) {
                 return 11;
             }
@@ -49,5 +49,13 @@ public class Card {
         } else {
             return 0;
         }
+    }
+
+    public boolean isFaceUp() {
+        return faceUp;
+    }
+
+    public void flip() {
+        faceUp = !faceUp;
     }
 }
