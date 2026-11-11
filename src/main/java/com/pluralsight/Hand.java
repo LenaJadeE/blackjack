@@ -18,7 +18,27 @@ public class Hand {
         return cards.size();
     }
 
-    //public int getValue() {
-      //  int
-    //}
+    public int getValue() {
+        int value = 0;
+
+        for (Card card : cards) {
+            card.flip();
+            value += card.getPointValue();
+            card.flip();
+        }
+
+        return value;
+    }
+
+    public String describe() {
+        String text = "";
+
+        for (Card card  : cards) {
+            card.flip();
+            text += card.getValue() + " of " + card.getSuit() + "   ";
+            card.flip();
+        }
+
+        return text;
+    }
 }
