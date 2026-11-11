@@ -12,5 +12,19 @@ public class Card {
         this.faceUp = false;
     }
 
+    public String getSuit() {
+        if (faceUp) {
+            return suit;
+        } else {
+            return "#";
+        }
+    }
 
+    public String getValue() {
+        if (faceUp){
+            return value;
+        } else {
+            return "#";
+        }
+    }
 }
