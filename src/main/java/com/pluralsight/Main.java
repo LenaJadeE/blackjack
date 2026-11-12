@@ -8,9 +8,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("How many players? ");
-        int numberOfPlayers = scanner.nextInt();
-        scanner.nextLine();
+        int numberOfPlayers = 0;
+        while (numberOfPlayers < 1 || numberOfPlayers > 26) {
+            System.out.print("How many players (1-26)? ");
+
+            try {
+                numberOfPlayers = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                numberOfPlayers = 0;
+            }
+
+            if (numberOfPlayers < 1 || numberOfPlayers > 26) {
+                System.out.println("Please enter a whole number from 1 to 26.");
+            }
+        }
 
         ArrayList<Player> players = new ArrayList<>();
         for (int i = 1; i <= numberOfPlayers; i++) {
@@ -68,9 +79,9 @@ public class Main {
         if (winner == null) {
             System.out.println(ColorCodes.RED + "Everyone went over 21. No winner." + ColorCodes.RESET);
         } else if (tie) {
-            System.out.println(ColorCodes.YELLOW +"It's a tie at " + bestValue + "." + ColorCodes.RESET);
+            System.out.println(ColorCodes.YELLOW + "It's a tie at " + bestValue + "." + ColorCodes.RESET);
         } else {
-            System.out.println(ColorCodes.GREEN +winner.getName() + " wins with " + bestValue + "!"+ ColorCodes.RESET);
+            System.out.println(ColorCodes.GREEN + winner.getName() + " wins with " + bestValue + "!" + ColorCodes.RESET);
         }
     }
 }
