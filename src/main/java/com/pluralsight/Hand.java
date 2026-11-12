@@ -23,9 +23,21 @@ public class Hand {
 
     public int getValue() {
         int value = 0;
+        int aces = 0;
 
         for (Card card : cards) {
             value += card.getPointValue();
+
+            if (card.getValue().equals("A")) {
+                aces++;
+            }
+        }
+
+        while (aces > 0) {
+            if (value > 21) {
+                value -= 10;
+            }
+            aces--;
         }
 
         return value;
