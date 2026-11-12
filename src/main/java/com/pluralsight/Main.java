@@ -41,10 +41,12 @@ public class Main {
             }
         }
 
-        System.out.println();
-        System.out.println("Cards left in the deck: " + deck.getSize());
-        System.out.println();
+        for (Player player : players) {
+            takeTurn(player, deck, scanner);
+        }
 
+        System.out.println();
+        System.out.println("Final hands");
         for (Player player : players) {
             Hand hand = player.getHand();
             System.out.println(player.getName() + " (" + hand.getSize() + " cards): "
@@ -55,6 +57,44 @@ public class Main {
         declareWinner(players);
 
         scanner.close();
+    }
+
+    private static void takeTurn(Player player, Deck deck, Scanner scanner) {
+        Hand hand = player.getHand();
+        boolean playing = true;
+
+        System.out.println();
+        System.out.println(player.getName() + "'s turn");
+
+        while (playing) {
+            System.out.println(hand.describe() + "= " + hand.getValue());
+
+            if (hand.getValue() >= 21) {
+                playing = false;
+            } else {
+                System.out.print("Hit or stay? (h/s): ");
+                String choice = scanner.nextLine().trim();
+
+                if (choice.equalsIgnoreCase("h")) {
+                    Card card = deck.deal();
+
+                    if (card == null) {
+                        System.out.println("The deck is empty.");
+                        playing = false;
+                    } else {
+                        hand.deal(card);
+                    }
+                } else if (choice.equalsIgnoreCase("s")) {
+                    playing = false;
+                } else {
+                    System.out.println("Please type h or s.");
+                }
+            }
+        }
+
+        if (hand.getValue() > 21) {
+            System.out.println(ColorCodes.RED + player.getName() + " went over 21!" + ColorCodes.RESET);
+        }
     }
 
     private static void declareWinner(ArrayList<Player> players) {
